@@ -9,11 +9,11 @@ This project is a web application designed to process and display data, focusing
 
 ## Features
 
-- **File Upload:** Users can upload CSV or Excel files. [cite: 28]
-- **Data Type Inference:** The backend (Django + Pandas) infers appropriate data types for each column in the uploaded dataset. [cite: 3, 4]
-- **Data Type Mapping:** Pandas data types are mapped to user-friendly names (e.g., 'object' to 'Text', 'datetime64' to 'Date'). [cite: 29, 30]
+- **File Upload:** Users can upload CSV or Excel files.
+- **Data Type Inference:** The backend (Django + Pandas) infers appropriate data types for each column in the uploaded dataset.
+- **Data Type Mapping:** Pandas data types are mapped to user-friendly names (e.g., 'object' to 'Text', 'datetime64' to 'Date').
 - **Data Preview:** Displays a preview of the processed data.
-- **Type Override (Frontend):** Provides a basic interface for users to see inferred types and conceptually "override" them (though this version doesn't send overrides back to the backend for actual reprocessing). [cite: 30]
+- **Type Override (Frontend):** Provides a basic interface for users to see inferred types and conceptually "override" them (though this version doesn't send overrides back to the backend for actual reprocessing).
 
 ## Setup and Running the Application
 
@@ -81,19 +81,19 @@ This project is a web application designed to process and display data, focusing
 
 1.  Ensure both the Django backend and React frontend are running.
 2.  Open your browser to `http://localhost:3000`.
-3.  Use the "Upload Data File" section to select a CSV or Excel file. [cite: 28]
+3.  Use the "Upload Data File" section to select a CSV or Excel file.
 4.  Click "Upload and Process" to send the file to the backend.
 5.  The processed data preview and inferred data types will be displayed.
-6.  You can see the inferred types and conceptually select different "user-friendly" types using the dropdowns (note: this does not re-process data in this minimum version). [cite: 30]
+6.  You can see the inferred types and conceptually select different "user-friendly" types using the dropdowns (note: this does not re-process data in this minimum version).
 
 ## Error Handling and Validations
 
--   **Backend:** Includes basic error handling for file uploads and data processing errors. [cite: 31]
--   **Frontend:** Provides visual feedback for loading states and errors during file upload. [cite: 31]
+-   **Backend:** Includes basic error handling for file uploads and data processing errors.
+-   **Frontend:** Provides visual feedback for loading states and errors during file upload.
 
 ## Notes
 
--   The data type inference in `data_inference.py` is a starting point and aims for high accuracy but might require further refinement for highly diverse datasets. [cite: 22, 23]
+-   The data type inference in `data_inference.py` is a starting point and aims for high accuracy but might require further refinement for highly diverse datasets.
 -   For large files, asynchronous processing (e.g., using Celery with Redis/RabbitMQ) for the Pandas script would be recommended to prevent frontend timeouts. This is not implemented in this bare-minimum version.
 -   The "override" functionality in the frontend is a visual representation; in a production app, this would trigger re-processing or saving user-defined type mappings.
--   Thorough testing with various CSV and Excel files is crucial. [cite: 8, 39, 40]
+-   Thorough testing with various CSV and Excel files is crucial.
