@@ -1,0 +1,48 @@
+/* src/components/common/ErrorNotification.css */
+.error-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffdddd;
+    border-left: 5px solid #f44336;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 400px;
+    animation: slidein 0.3s ease-in-out;
+  }
+  
+  .error-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .error-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .error-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .error-close:hover {
+    color: #333;
+  }
+  
+  @keyframes slidein {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
