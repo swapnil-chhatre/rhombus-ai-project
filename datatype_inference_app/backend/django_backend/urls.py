@@ -24,7 +24,7 @@ from data_inference.views import DataInferenceViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'data', DataInferenceViewSet, basename='data_inference')
+router.register(r'data_inference', DataInferenceViewSet, basename='data_inference')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

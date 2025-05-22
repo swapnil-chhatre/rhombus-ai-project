@@ -5,6 +5,8 @@ from django.conf import settings
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
+
 from .models import ProcessedFile, ColumnMetadata
 from .serializers import ProcessedFileSerializer, ColumnMetadataSerializer
 from .infer_data_type import InferenceEngine
@@ -16,14 +18,15 @@ class DataInferenceViewSet(viewsets.ViewSet):
         super().__init__(*args, **kwargs)
         self.engine = InferenceEngine()
     
-    @action(detail=False, methods=['post'], url_path='upload')
+    # @action(detail=False, methods=['post'], url_path='upload')
+    @action(detail=False, methods=['post'])
     def upload_file(self, request):
         """Upload and process a data file."""
         
         if 'file' not in request.FILES:
             return Response({"error": "No file provided"}, status=status.HTTP_400_BAD_REQUEST)
         
-        file_obj = request.FILES['file']
+        file_obj = request.FILES.get('file')
         apply_types = request.data.get('apply_inferred_types', 'false').lower() == 'true'
         
         # Save the uploaded file
